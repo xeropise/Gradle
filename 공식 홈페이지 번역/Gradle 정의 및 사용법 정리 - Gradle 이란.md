@@ -2,6 +2,8 @@
 
 - 오픈 소스 빌드 자동화 도구, 어떤 소프트웨어의 타입이라도 충분히 유연성하게 동작하도록 설계되었다.
 
+  
+
 - 중요한 특징들만 나열하자면 다음과 같다.
 
   - 높은 성능
@@ -10,11 +12,15 @@
 
     - [빌드 캐시](https://docs.gradle.org/current/userguide/build_cache.html)를 사용하여 이전에 혹은 다른 기계에서 실행된 task의 결과들을 다시 사용할 수 있다.
 
+      
+
   - JVM 기반
 
     - Gradle은 JVM 위에서 동작해 사용하기 위해서는 JDK가 설치되어야 한다. 자바 플랫폼에 친숙한 사용자라면 많은 도움이 된다.
 
     - 그렇다고 JVM 프로젝트들만 빌딩하도록 제한되어 있는것은 아니다.
+
+      
 
   - Conventions
 
@@ -24,18 +30,22 @@
 
     - 그렇다고, 그것들을 override 하라는 것은 아니며 자기만의 tasks, 그리고 많은 다른 커스텀을 통해 나만의 convention-based 빌드를 만들 수 있다.
 
+      
+
   - 확장성
 
     - 즉시 Gradle을 나만의 task 타입 혹은 빌드 모델 제공을 통해 확장할 수 있다.
 
     - Android 빌드 서포트 예를 보면 많은 새로운 빌드 컨셉(예로 flavors) 을 볼 수 있다.
 
+      
+  
   - IDE support
-
+  
     - 몇몇의 주요 IDE 들은 Gradle 빌드를 가져오게 하고 상호작용하다.
-
+  
     - Android Studio, Intellij IDEA, Eclipse, NetBeans
-
+  
     - Gradle은 Visual Studio 에 프로젝트를 로드하기 위해 솔루션 파일들을 생성하는 것을 지원한다.
 
 <br>
@@ -54,9 +64,11 @@
 
      - 커스텀 플러그인은 만들거나 publish하고 나만의 conventions 이나 빌드 기능들 캡슐화 할 수 있다.
 
+       
+
   2. 코어모델은 tasks 에 기반한다
 
-     - Gradle은 빌드를 tasks의 Directed Acyclic Graphs (DAGs) 라는 일의 단위로 모델한다.
+     - Gradle은 빌드를 tasks의 [Directed Acyclic Graphs](https://ko.wikipedia.org/wiki/%EC%9C%A0%ED%96%A5_%EB%B9%84%EC%88%9C%ED%99%98_%EA%B7%B8%EB%9E%98%ED%94%84) (DAGs) 라는 일의 단위로 모델한다.
 
      - 이말은 빌드가 핵심적으로 tasks 셋을 구성하고 연결한다는 말이다.
 
@@ -79,6 +91,8 @@
      - 사실상, 방금 언급했던 것들은 어떤 tasks 가 필요로 해지는가에 따라서 선택적일 수 있다. 몇몇 tasks ( 예로 [standard lifecycle tasks](https://docs.gradle.org/current/userguide/base_plugin.html#sec:base_tasks) ) 는 어떠한 Actions 도 가지고 있지 않다. 편리를 위해 많은 tasks를 군집해 놓은 것 들이다.
 
      - 마지막으로 하나 중요한 것이 있는데, Gradle 의 [incremental build](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks) 지원은 거대하고 믿을만하다. 만약 실제로 clean 작업을 실행하는것을 원치 않는다면, 속도 향상을 위해 사용하지 마라.
+
+       
 
   3. Gradle 은 몇몇의 고정된 build 단계를 가지고 있다.
 
@@ -107,6 +121,8 @@
        - 설정단계에서 평가된 코드들이 실행 단계에서 어떠한 변화도 보이지 않는 이유이다.
 
      - 설정 단계의 중요한 특징은 포함된 모든 것들이 build runs 마다 평가되어진다는 것이다. 그런 이유로 [설정 단계에서 비싼 작업들을 피하기](https://docs.gradle.org/current/userguide/authoring_maintainable_build_scripts.html#sec:minimize_logic_executed_configuration_phase) 것이 매우 중요하다.
+
+       
 
   4. Gradle은 여러 방법으로 확장이 가능하다.
 
@@ -139,9 +155,11 @@
          - build 에 [source sets](https://docs.gradle.org/current/userguide/building_java_projects.html#sec:java_source_sets)의 개념을 추가하는 대부분의 언어 plugins 을 볼 수 있다.
 
          - build 프로세스의 적절한 모델링은 효율성과 사용의 쉬움을 향상 시킬 수 있다.
-
+         
+           
+  
   5. Build scripts가 API에 대하여 동작
-
+  
      - 실행될 코드로 Gradle의 build scripts 를 보는것은 매우 쉽다. 잘 디자인된 build scripts는 소프트웨어가 어떤 단계로 빌드되고, 어떻게 동작해야하는지 설명한다.
-
+  
   - [Groovy DSL Reference](https://docs.gradle.org/current/userguide/what_is_gradle.html) 나 [Javadocs](https://docs.gradle.org/current/javadoc/) 로 이루어져있는 API 서류를 통해 이를 확인하여 사용할 수 있다.
